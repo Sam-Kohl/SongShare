@@ -4,6 +4,14 @@
     <div class="col-6">
       <!-- Post display -->
       <h2><%= post.title %></h2>
+        <!-- Poster username -->
+        <div>
+          <% for(var j=0; j<users.length; j++) { %>
+            <% if (  String(post.user) == String(users[j]._id) ) {%>
+              <span class="userName">Uploaded By: <%= users[j].userName%> </span>
+            <% } %>
+          <% } %>
+         </div>
       <audio src="<%= post.audio%>" controls="controls"></audio>
       <div class="row justify-content-between">
         

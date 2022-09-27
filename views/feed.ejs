@@ -1,11 +1,14 @@
 <%- include('partials/header') -%>
+<div class="text-center mt-5">
+  <h1 class="">Song Feed</h1>
+  <span>Everyones posts are shown here</span>
+</div>
   <div class="container">
     <div class="row justify-content-center mt-5">
       <ul class="row list-unstyled">
         <% for(var i=0; i<posts.length; i++) { %>
           
-            <li class="col-6 justify-content-between mt-5">
-              <a href="/post/<%= posts[i]._id%>">
+            <li class="border rounded col-12 justify-content-between mt-5 feed-li">
                 <h6><%= posts[i].title%></h6>
                   <% for(var j=0; j<users.length; j++) { %>
                     <% if (  String(posts[i].user) == String(users[j]._id) ) {%>
@@ -15,7 +18,7 @@
                 <div>
                   <audio src="<%= posts[i].audio%>" controls="controls"></audio>
                 </div>
-              </a>
+                <span><a href="/post/<%= posts[i]._id%>">View Song Page</a></span>
             </li>
         <% } %>
         </ul>

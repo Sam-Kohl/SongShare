@@ -2,14 +2,21 @@
   <div class="container">
     <div class="row justify-content-center mt-5">
       <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <h6><%= posts[i].title%></h6>
-              <span>Uploaded By: <%= posts[i]._id%> </span>
-              <audio src="<%= posts[i].audio%>" controls="controls"></audio>
-            </a>
-          </li>
+        <% for(var i=0; i<posts.length; i++) { %>
+          
+            <li class="col-6 justify-content-between mt-5">
+              <a href="/post/<%= posts[i]._id%>">
+                <h6><%= posts[i].title%></h6>
+                  <% for(var j=0; j<users.length; j++) { %>
+                    <% if (  String(posts[i].user) == String(users[j]._id) ) {%>
+                      <span class="userName">Uploaded By: <%= users[j].userName%> </span>
+                    <% } %>
+                  <% } %>
+                <div>
+                  <audio src="<%= posts[i].audio%>" controls="controls"></audio>
+                </div>
+              </a>
+            </li>
         <% } %>
         </ul>
     </div>

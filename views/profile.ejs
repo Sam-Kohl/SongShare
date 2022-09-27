@@ -1,14 +1,15 @@
 <%- include('partials/header') -%>
 <div class="container">
+  <h1 class="#"><%= user.userName %>'s Profile</h1>
   <div class="row mt-5">
-      <div class="col-6">
+      <div class="col-12">
           <div>
               <p><strong>User Name</strong>: <%= user.userName %></p>
               <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+              <!-- <a href="/logout" class="col-3 btn btn-primary">Logout</a> -->
           </div>
-          <div class="mt-5">
-            <h2>Add a post</h2>
+          <div class="mt-5 border rounded">
+            <h2>Add a Sound</h2>
             <form action="/post/createPost" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
                   <label for="title" class="form-label">Title</label>
@@ -26,8 +27,8 @@
             </form>
           </div>
       </div>
-      <div class="col-6">
-        <h2>Your Sounds</h2>
+      <div class="col-12 border rounded">
+        <h2>Your Sound Collection</h2>
         <ul class="row list-unstyled">
         <% for(var i=0; i<posts.length; i++) {%>
           <li class="col-6 justify-content-between mt-5">

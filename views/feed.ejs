@@ -39,23 +39,23 @@
       <div class="card mb-3">
       <div class="card-body">
         <div class="d-flex flex-column flex-lg-row">
-          <span class="avatar avatar-text rounded-3 me-4 mb-2">FD</span>
+          <span class="avatar avatar-text rounded-3 me-4 mb-2"><%= i %></span>
           <div class="row flex-fill">
-            <div class="col-sm-5">
-              <h4 class="h5"><%= posts[i].title%></h4>
+            <div class="col-sm-12 ">
+              
+            
+            
+            <div class="col-12 py-2 " >
+              <h4 class="h5 col-12"><%= posts[i].title%></h4>
               <% for(var j=0; j<users.length; j++) { %>
                 <% if (  String(posts[i].user) == String(users[j]._id) ) {%>
-                  <span class="userNAME badge bg-secondary"><%= users[j].userName%></span>
+                  <span class="col-1 userNAME badge bg-success"><%= users[j].userName%></span>
                 <% } %>
               <% } %>
-            <div>
+              <audio src="<%= posts[i].audio%>" controls="controls" class="col-6"></audio>
+              <a href="/post/<%= posts[i]._id%>" class="btn btn-primary col-2">View Song Page</a>
             </div>
-            <div class="col-sm-4 py-2">
-              <audio src="<%= posts[i].audio%>" controls="controls"></audio>
-            </div>
-            <div class="col-sm-3 text-lg-end">
-              <a href="/post/<%= posts[i]._id%>" class="btn btn-primary stretched-link">View Song Page</a>
-            </div>
+           
           </div>
         </div>
       </div>
